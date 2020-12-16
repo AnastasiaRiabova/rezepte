@@ -1,4 +1,3 @@
-import Api from "./Api";
 import SearchForm from "./SearchForm/searchForm";
 
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <>
       <div className="App">
         <SearchForm />
-        <Api />
       </div>
     </>
   );
