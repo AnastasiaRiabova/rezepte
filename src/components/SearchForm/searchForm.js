@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import operations from "../../Redux/Recipe/recipe-operations";
 
 export class SearchForm extends Component {
   state = {
@@ -10,7 +12,7 @@ export class SearchForm extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.inputValue);
+    this.props.getRecipes(this.state.inputValue);
     this.setState({ inputValue: "" });
   };
   render() {
@@ -29,5 +31,12 @@ export class SearchForm extends Component {
     );
   }
 }
+// const mapStateToProps = (state) => ({
+//   value: state.timer,
+// });
 
-export default SearchForm;
+const mapDispatchToProps = {
+  getRecipes: operations,
+};
+
+export default connect(null, mapDispatchToProps)(SearchForm);
