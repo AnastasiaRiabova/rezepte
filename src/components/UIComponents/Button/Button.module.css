@@ -1,0 +1,18 @@
+.button{
+    width: 176px;
+    height: 44px;
+    
+}
+
+.white{
+border: 2px solid #FC842D;
+border-radius: 30px;
+background: #FFFFFF;
+color: #FC842D;
+}
+
+.orange{
+    background: #FC842D;
+/* box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5); */
+border-radius: 30px;
+}
