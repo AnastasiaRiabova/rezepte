@@ -24,8 +24,7 @@ export default function LoginView() {
                 {/* <button onClick={handleOnsubmit} type='submit'>Login</button> */}
                 <Button color="white" label='Login' type='submit' />
             </form>
-            <NavLink to="/registration">Registration</NavLink>
-            <CustomNavlink to='/' label='nav' color='orange' />
+            <CustomNavlink to='/registration' label='Registration' color='orange' />
         </div>
     )
 }
