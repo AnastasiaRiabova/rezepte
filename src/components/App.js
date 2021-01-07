@@ -2,6 +2,8 @@ import SearchForm from "./SearchForm/searchForm";
 import Header from "./Header/Header";
 import UserInfo from "./UserInfo/UserInfo";
 import { BrowserRouter } from 'react-router-dom'
+import LoginView from "./View/LoginView/LoginView";
+import RegistrationView from "./View/RegistrationView/RegistrationView";
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
           <Header>
             <UserInfo />
           </Header>
-          <SearchForm />
+          {/* <SearchForm /> */}
+          <LoginView />
+          <RegistrationView />
         </div>
       </BrowserRouter>
     </>
