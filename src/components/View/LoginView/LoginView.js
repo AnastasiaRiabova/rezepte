@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from 'react'
 import Button from "../../UIComponents/Button/Button";
 import CustomNavlink from "../../UIComponents/NavLink/CustomNavlink";
+import Input from "../../UIComponents/Input/Input";
 
 
 export default function LoginView() {
@@ -17,11 +18,11 @@ export default function LoginView() {
     return (
         <div>
             LOGIN
-            <form >
-                <input onChange={handleNameChange} placeholder='name' type="text" value={name} />
-                <input onChange={handlePasswordChange} placeholder='password' type="password" value={password} />
+            <form onSubmit={handleOnsubmit}>
+                <Input onChange={handleNameChange} placeholder='name' type="text" value={name} />
+                <Input onChange={handlePasswordChange} placeholder='password' type="password" value={password} />
                 {/* <button onClick={handleOnsubmit} type='submit'>Login</button> */}
-                <Button onClick={handleOnsubmit} color="white" label='Login' />
+                <Button color="white" label='Login' type='submit' />
             </form>
             <NavLink to="/registration">Registration</NavLink>
             <CustomNavlink to='/' label='nav' color='orange' />
