@@ -21,3 +21,6 @@ input{
 input:hover,input:focus{
   outline: none;
 }
+ul{
+  list-style: none;
+}
