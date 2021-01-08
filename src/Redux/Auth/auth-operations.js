@@ -49,7 +49,6 @@ const registration = userData => dispatch => {
 };
 
 const logOut = () => dispatch => {
-  // console.log('Hi');
   clearToken();
   dispatch(authAction.logoutSuccess());
 };
