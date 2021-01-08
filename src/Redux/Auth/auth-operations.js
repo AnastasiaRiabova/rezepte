@@ -13,10 +13,8 @@ const logIn = userData => dispatch => {
   axios
     .post('/auth/login', userData)
     .then(response => {
-      // console.log(response);
       setToken(response.data.accessToken);
       dispatch(authAction.loginSuccess(response.data));
-      // console.log(response.data);
     })
     .catch(error => {
       console.log(error);
@@ -38,7 +36,6 @@ const registration = userData => dispatch => {
           password: userData.password,
         })
         .then(response => {
-          // console.log(response);
           setToken(response.data.accessToken);
           dispatch(authAction.loginSuccess(response.data));
         })

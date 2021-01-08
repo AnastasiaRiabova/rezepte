@@ -14,8 +14,6 @@ import recipeReducer from './Recipe/recipe-reducers';
 import calculatorReducer from './Calculator/calculator-reducers';
 import authReducer from './Auth/auth-reducers';
 
-// const defaultMiddleware = ;
-
 const authPersistConfig = {
   key: 'auth',
   storage,
