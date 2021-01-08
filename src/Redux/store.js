@@ -25,7 +25,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer.token),
-    user: authReducer.auth,
+    user: authReducer.user,
     recipe: recipeReducer,
     calculator: calculatorReducer,
   },
