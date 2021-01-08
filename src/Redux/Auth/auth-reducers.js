@@ -21,5 +21,5 @@ const tokenReducer = createReducer(null, {
   },
   [actions.logoutSuccess]: (_, __) => null,
 });
-const auth = { auth: authReducer, token: tokenReducer };
+const auth = { user: authReducer, token: tokenReducer };
 export default auth;
