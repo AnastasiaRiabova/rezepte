@@ -10,6 +10,8 @@ export default function HomeView() {
     const handleAgeChange = e => setAge(e.currentTarget.value)
     const [currentWeight, setCurrentWeight] = useState('')
     const handleCurrentWeightChange = e => setCurrentWeight(e.currentTarget.value)
+    const [radio, setRadio] = useState('')
+    const handleRadioChange = e => setRadio(e.target.value)
     return (
         <>
             <h1>Просчитай свою суточную норму калорий прямо сейчас</h1>
@@ -20,10 +22,10 @@ export default function HomeView() {
                 <Input type='text' onChange={handleCurrentWeightChange} value={currentWeight} placeholder="Current Weight" />
                 <label htmlFor="">
                     Blood
-                    <input type="radio" /> 1
-                    <input type="radio" /> 2
-                    <input type="radio" /> 3
-                    <input type="radio" /> 4
+                    <input onChange={handleRadioChange} type="radio" value='1' checked={radio === '1'} /> 1
+                    <input onChange={handleRadioChange} type="radio" value='2' checked={radio === '2'} /> 2
+                    <input onChange={handleRadioChange} type="radio" value='3' checked={radio === '3'} /> 3
+                    <input onChange={handleRadioChange} type="radio" value='4' checked={radio === '4'} /> 4
 
 </label>
             </form>
