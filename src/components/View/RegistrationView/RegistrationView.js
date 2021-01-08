@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Button from '../../UIComponents/Button/Button';
 import Input from '../../UIComponents/Input/Input';
 import operation from '../../../Redux/Auth/auth-operations';
+import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
 
 export default function RegistrationView() {
   const [username, setUsername] = useState('');
@@ -50,7 +51,7 @@ export default function RegistrationView() {
         />
         <Button label="Registration" color="orange" type="submit" />
       </form>
-      <NavLink to="/registration">Login</NavLink>
+      <CustomNavlink to="/registration" label='Login' color='orange' />
     </div>
   );
 }
