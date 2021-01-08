@@ -9,8 +9,8 @@ const routes = [
     private: false,
   },
   {
-    path: '/registation',
-    label: 'Registrtion',
+    path: '/registration',
+    label: 'Registration',
     exact: false,
     component: lazy(() =>
       import('./components/View/RegistrationView/RegistrationView'),

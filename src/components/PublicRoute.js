@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import selectors from '../Redux/Auth/auth-selectors';
 
 const PublicRoute = ({ component: Component, ...routeProps }) => {
-  const isAuth = useSelector(state => state.auth);
+  const isAuth = useSelector(selectors);
   //   const isAuth = false;
   console.log(isAuth);
   return (

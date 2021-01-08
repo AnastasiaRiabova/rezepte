@@ -1,3 +1,3 @@
-const isAuthenticated = state => state.auth;
+const isAuthenticated = state => state.auth.token;
 
 export default isAuthenticated;
