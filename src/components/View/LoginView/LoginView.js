@@ -10,7 +10,7 @@ import styles from "./LoginView.module.css";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  password: Yup.string().min(6, 'Too Short!').max(50, 'Too Long!').required('Required'),
 });
 export default function LoginView() {
 
@@ -21,7 +21,7 @@ export default function LoginView() {
 
   return (
     <div>
-      LOGIN
+      <h1 className={styles.title}>Login</h1>
       <Formik
         initialValues={{
           email: '',
@@ -34,12 +34,20 @@ export default function LoginView() {
         }}
       >
         {(({ errors, touched }) => <Form>
-          <Field placeholder='Email' className={styles.input} name='email' />{errors.email && touched.email ? (<div>{errors.email}</div>) : null}
-          <Field type='password' placeholder='Password' className={styles.input} name='password' />{errors.password && touched.password ? (<div>{errors.password}</div>) : null}
-          <Button label="Login" color="orange" type="submit" />
+          <div className={styles.formContainer}>
+            <div className={styles.fieldContainer}>
+              <Field placeholder='Email' className={styles.input} name='email' />{errors.email && touched.email ? (<div className={styles.validation}>{errors.email}</div>) : null}
+            </div>
+            <div className={styles.fieldContainer}>
+              <Field type='password' placeholder='Password' className={styles.input} name='password' />{errors.password && touched.password ? (<div className={styles.validation}>{errors.password}</div>) : null}
+            </div>
+          </div>
+          <div className={styles.controls}>
+            <Button label="Login" color="orange" type="submit" />
+            <CustomNavlink to="/registration" label="Registration" color="orange" />
+          </div>
         </Form>)}
       </Formik>
-      <CustomNavlink to="/registration" label="Registration" color="orange" />
     </div>
   );
 }

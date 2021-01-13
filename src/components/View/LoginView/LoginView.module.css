@@ -8,5 +8,42 @@ font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.04em;
 color: #9B9FAA;
+padding-bottom: 10px;
+width: 100%;
+}
+.title{
+    font-family: Gotham Pro;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 13px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
 
+color: #FC842D;
+}
+.fieldContainer{
+    position: relative;
+}
+.fieldContainer:not(:last-child){
+    margin-bottom: 20px;
+}
+.validation{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 240px;
+    padding-bottom: 60px;
+}
+
+.controls{
+    display: flex;
+}
+.controls > a {
+    margin-left: 30px;
 }
