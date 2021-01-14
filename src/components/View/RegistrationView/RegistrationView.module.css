@@ -47,3 +47,32 @@ color: #FC842D;
 .controls > a {
     margin-left: 30px;
 }
+
+.none{
+    display: none;
+}
+.altenativeRadio{
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #9B9FAA;
+    border-radius: 50%;
+    padding: 2px;
+    
+}
+.input + span{
+    color:  #9B9FAA;
+
+}
+.input:checked + span>.altenativeRadio{
+    background-image: url('../../../images/radio.svg');
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+}
+.input + span>.altenativeRadio{
+    margin-right: 5px;
+}
+.input:checked + span{
+color: orange;
+}

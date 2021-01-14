@@ -1,8 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../../UIComponents/Button/Button';
 import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
-import Input from '../../UIComponents/Input/Input';
 import operations from '../../../Redux/Auth/auth-operations';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
