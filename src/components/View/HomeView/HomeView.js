@@ -1,34 +1,66 @@
-import Input from "../../UIComponents/Input/Input";
-import { useState } from "react";
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import styles from '../RegistrationView/RegistrationView.module.css'
+import Button from "../../UIComponents/Button/Button";
+
+const ValidationSchema = Yup.object().shape({
+    weight: Yup.number('Must be a number').positive(`Can't be negative`).required('Required'),
+    height: Yup.number('Must be a number').positive(`Can't be negative`).required('Required'),
+    age: Yup.number('Must be a number').positive(`Can't be negative`).required('Required'),
+    desiredWeight: Yup.number('Must be a number').positive(`Can't be negative`).required('Required'),
+    bloodType: Yup.string().required('Required'),
+});
 
 export default function HomeView() {
-    const [height, setHeight] = useState('')
-    const handleHeightChange = e => setHeight(e.currentTarget.value)
-    const [desiredWeight, setDesiredWeight] = useState('')
-    const handleDesiredWeightChange = e => setDesiredWeight(e.currentTarget.value)
-    const [age, setAge] = useState(0)
-    const handleAgeChange = e => setAge(e.currentTarget.value)
-    const [currentWeight, setCurrentWeight] = useState('')
-    const handleCurrentWeightChange = e => setCurrentWeight(e.currentTarget.value)
-    const [radio, setRadio] = useState('')
-    const handleRadioChange = e => setRadio(e.target.value)
+
     return (
         <>
             <h1>Просчитай свою суточную норму калорий прямо сейчас</h1>
-            <form>
-                <Input type='text' onChange={handleHeightChange} value={height} placeholder="Height" />
-                <Input type='text' onChange={handleDesiredWeightChange} value={desiredWeight} placeholder="Desired Weight" />
-                <Input type='number' onChange={handleAgeChange} value={age} placeholder="Age" />
-                <Input type='text' onChange={handleCurrentWeightChange} value={currentWeight} placeholder="Current Weight" />
-                <label htmlFor="">
-                    Blood
-                    <input onChange={handleRadioChange} type="radio" value='1' checked={radio === '1'} /> 1
-                    <input onChange={handleRadioChange} type="radio" value='2' checked={radio === '2'} /> 2
-                    <input onChange={handleRadioChange} type="radio" value='3' checked={radio === '3'} /> 3
-                    <input onChange={handleRadioChange} type="radio" value='4' checked={radio === '4'} /> 4
+            <Formik
+                initialValues={
+                    {
+                        weight: '',
+                        height: "",
+                        age: "",
+                        desiredWeight: "",
+                        bloodType: 0
+                    }
+                }
+                validationSchema={ValidationSchema}
+                onSubmit={(values, { resetForm }) => {
+                    console.log(values);
+                    resetForm()
+                }}
+            >
+                {(({ errors, touched }) => <Form>
+                    <div className={styles.formContainer}>
+                        <div className={styles.fieldContainer}>
+                            <Field placeholder='Weight *' type='number' className={styles.input} name='weight' />{errors.weight && touched.weight ? (<div className={styles.validation}>{errors.weight}</div>) : null}
+                        </div>
+                        <div className={styles.fieldContainer}>
+                            <Field placeholder='Height *' type='number' className={styles.input} name='height' /> {errors.height && touched.height ? (<div className={styles.validation}>{errors.height}</div>) : null}
+                        </div>
+                        <div className={styles.fieldContainer}>
+                            <Field placeholder='Age *' type='number' className={styles.input} name='age' />{errors.age && touched.age ? (<div className={styles.validation}>{errors.age}</div>) : null}
+                        </div>
+                        <div className={styles.fieldContainer}>
+                            <Field placeholder='Desired weight *' type='number' className={styles.input} name='desiredWeight' />{errors.desiredWeight && touched.desiredWeight ? (<div className={styles.validation}>{errors.desiredWeight}</div>) : null}
+                        </div>
 
-</label>
-            </form>
+                        <h2> Blood type</h2>
+                        <div className={styles.fieldContainer}>
+                            <label >      <Field className={[styles.input, styles.none].join(' ')} type='radio' name="bloodType" value='1' /><span ><span className={styles.altenativeRadio}></span>1</span>                       </label>
+                            <label > <Field className={[styles.input, styles.none].join(' ')} type="radio" name="bloodType" value="2" /><span><span className={styles.altenativeRadio}></span>2</span>                       </label>
+                            <label >  <Field className={[styles.input, styles.none].join(' ')} type="radio" name="bloodType" value="3" /><span><span className={styles.altenativeRadio}></span>3</span>                       </label>
+                            <label >  <Field className={[styles.input, styles.none].join(' ')} type="radio" name="bloodType" value="4" /><span><span className={styles.altenativeRadio}></span>4</span>                       </label>
+                            {errors.bloodType && touched.bloodType ? (<div className={styles.validation}>{errors.bloodType}</div>) : null}
+                        </div>
+
+
+                        <Button label="Registration" color="orange" type="submit" />
+                    </div>
+                </Form>)}
+            </Formik>
         </>
     )
 }

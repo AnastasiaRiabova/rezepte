@@ -9,7 +9,7 @@ export default function Header({ children }) {
   const logout = useCallback(() => { dispatch(authOperation.logOut()) }, [dispatch])
   return (
     <header className={styles.header}>
-      <img src={logo} alt="logo" />
+      <NavLink to='/'> <img src={logo} alt="logo" /></NavLink>
       {children}
       <NavLink to='/' onClick={logout} >Logout</NavLink>
     </header>
