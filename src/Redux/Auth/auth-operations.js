@@ -1,6 +1,6 @@
 import axios from 'axios';
 import authAction from './auth-actios';
-
+// to enter new priver Route we have to setTocken, because we clean it up by RecipeRequest
 axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
 
 const setToken = token =>
@@ -13,7 +13,7 @@ const logIn = userData => dispatch => {
   axios
     .post('/auth/login', userData)
     .then(response => {
-      setToken(response.data.accessToken);
+      // setToken(response.data.accessToken);
       dispatch(authAction.loginSuccess(response.data));
     })
     .catch(error => {
@@ -36,7 +36,7 @@ const registration = userData => dispatch => {
           password: userData.password,
         })
         .then(response => {
-          setToken(response.data.accessToken);
+          // setToken(response.data.accessToken);
           dispatch(authAction.loginSuccess(response.data));
         })
         .catch(er => console.log(er));

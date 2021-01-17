@@ -1,0 +1,16 @@
+.searchInput {
+  background-color: rgb(238, 231, 156);
+}
+
+.calculator {
+  background-color: rgba(128, 128, 128, 0.455);
+  border-radius: 10px;
+  position: fixed;
+  top: 80px;
+  left: 600px;
+  padding: 10px;
+}
+
+.position {
+  position: relative;
+}
