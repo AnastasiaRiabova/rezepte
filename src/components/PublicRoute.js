@@ -5,8 +5,6 @@ import selectors from '../Redux/Auth/auth-selectors';
 
 const PublicRoute = ({ component: Component, ...routeProps }) => {
   const isAuth = useSelector(selectors);
-  //   const isAuth = false;
-  //   console.log(isAuth);
   return (
     <Route
       {...routeProps}

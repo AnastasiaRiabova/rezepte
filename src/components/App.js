@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Header from './Header/Header';
 import UserInfo from './UserInfo/UserInfo';
+
 import routes from '../routes';
-import NotFound from './NotFound/NotFound';
+// import NotFound from './NotFound/NotFound';
 import PrivateRoute from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
 
@@ -24,7 +25,7 @@ function App() {
               <PublicRoute key={route.label} {...route} />
             ),
           )}
-          <Route component={NotFound} />
+          {/* <Route component={NotFound} /> */}
         </Switch>
       </Suspense>
     </>
