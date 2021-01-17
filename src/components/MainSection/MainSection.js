@@ -1,8 +1,6 @@
-import { Component } from "react";
+import SearchForm from '../SearchForm/SearchForm';
 
-export class MainSection extends Component {
-  render() {
-    return <div>Main Section</div>;
-  }
+function MainSection() {
+  return <SearchForm />;
 }
 export default MainSection;
