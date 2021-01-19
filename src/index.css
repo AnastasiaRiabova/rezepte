@@ -11,16 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
-input{
+input {
   border: none;
 }
-input:hover,input:focus{
+input:hover,
+input:focus {
   outline: none;
 }
-ul{
+ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
 }

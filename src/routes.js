@@ -1,13 +1,13 @@
 import { lazy } from 'react';
 
 const routes = [
-  {
-    path: '/',
-    label: 'start',
-    exact: true,
-    component: lazy(() => import('./components/View/HomeView/HomeView')),
-    private: false,
-  },
+  // {
+  //   path: '/',
+  //   label: 'start',
+  //   exact: true,
+  //   component: lazy(() => import('./components/View/HomeView/HomeView')),
+  //   private: true,
+  // },
   {
     path: '/registration',
     label: 'Registration',

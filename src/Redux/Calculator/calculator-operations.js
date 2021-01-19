@@ -1,21 +1,20 @@
-import axios from "axios";
-import action from "./calculator-actions";
-axios.defaults.baseURL = "http://slimmom-backend.herokuapp.com";
+import axios from 'axios';
+import action from './calculator-actions';
+axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
 
-const getCalculatorInfo = (info) => (dispatch) => {
-  console.log(info);
+const getCalculatorInfo = (info, id, token) => dispatch => {
+  console.log(info, id, token);
+  axios.defaults.headers.common.Authorization = token;
   dispatch(action.getCalculatorRequest());
 
   axios
-    .post("/daily-rate", {
-      weight: info.weight,
-      height: info.height,
-      age: info.age,
-      desiredWeight: info.desiredWeight,
-      bloodType: info.bloodType,
+    .post(`/daily-rate/${id}`, info)
+    .then(response => {
+      dispatch(
+        action.getCalculatorSuccess({ response: response.data, myInfo: info }),
+      );
     })
-    .then((response) => dispatch(action.getCalculatorSuccess(response.data)))
-    .catch((error) => dispatch(action.getCalculatorError(error)));
+    .catch(error => dispatch(action.getCalculatorError(error)));
 };
 
 export default getCalculatorInfo;

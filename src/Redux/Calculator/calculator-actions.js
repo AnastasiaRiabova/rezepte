@@ -1,8 +1,8 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
-const getCalculatorRequest = createAction("recipes/getCalculatorRequest");
-const getCalculatorSuccess = createAction("recipes/getCalculatorSuccess");
-const getCalculatorError = createAction("recipes/getCalculatorError");
+const getCalculatorRequest = createAction('calculator/getCalculatorRequest');
+const getCalculatorSuccess = createAction('calculator/getCalculatorSuccess');
+const getCalculatorError = createAction('calculator/getCalculatorError');
 const action = {
   getCalculatorRequest,
   getCalculatorSuccess,

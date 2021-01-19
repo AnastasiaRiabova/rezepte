@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import selectors from '../../Redux/Recipe/recipe-selectors';
+import styles from './NutrientsCount.module.css';
 
-function Calculator({ index }) {
+function NutrientsCount({ index }) {
   const [input, setInput] = useState('');
   const getRecipe = useSelector(selectors);
 
@@ -23,8 +24,8 @@ function Calculator({ index }) {
   }
 
   return (
-    <>
-      <div>Calculator</div>
+    <div className={styles.fontsStyle}>
+      <p>Calculator</p>
       <input type="text" name="input" value={input} onChange={handleInput} />
       {/* <p>{input && toCountNutrients()}</p> */}
       <p>{getRecipe && index && getRecipe[index].recipe.label}</p>
@@ -95,7 +96,7 @@ function Calculator({ index }) {
           Open whole recipe
         </a>
       </button>
-    </>
+    </div>
   );
 }
-export default Calculator;
+export default NutrientsCount;
