@@ -1,14 +1,11 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import action from './calculator-actions';
+// import { createReducer } from '@reduxjs/toolkit';
+// import action from './calculator-actions';
 
-const calculatorReducer = createReducer(
-  {},
-  {
-    [action.getCalculatorSuccess]: (state, { type, payload }) => payload,
-  },
-);
+// const calculatorReducer = createReducer(
+//   {},
+//   {
+//     [action.getCalculatorSuccess]: (_, { type, payload }) => payload,
+//   },
+// );
 
-export default combineReducers({
-  calculatorReducer,
-});
+// export default calculatorReducer;

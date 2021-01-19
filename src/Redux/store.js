@@ -11,21 +11,27 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import recipeReducer from './Recipe/recipe-reducers';
-import calculatorReducer from './Calculator/calculator-reducers';
+// import calculatorReducer from './Calculator/calculator-reducers';
 import authReducer from './Auth/auth-reducers';
+import getUserInfoReducer from './UserInfo/user-reducer';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
   // whitelist: ['token'],
 };
+const recipePersistConfig = {
+  key: 'recipe',
+  storage,
+  // whitelist: ['token'],
+};
 
 const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer.token),
-    user: authReducer.user,
-    recipe: recipeReducer,
-    calculator: calculatorReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+    user: getUserInfoReducer,
+    recipe: persistReducer(recipePersistConfig, recipeReducer),
+    // calculator: calculatorReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

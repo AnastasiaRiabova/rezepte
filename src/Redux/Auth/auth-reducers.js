@@ -2,13 +2,13 @@
 import { createReducer } from '@reduxjs/toolkit';
 import actions from './auth-actios';
 
-const authReducer = createReducer(null, {
-  [actions.loginSuccess]: (_, { type, payload }) => {
-    // console.log(payload);
-    return payload.user;
-  },
-  [actions.logoutSuccess]: (_, __) => null,
-});
+// const authReducer = createReducer(null, {
+//   [actions.loginSuccess]: (_, { type, payload }) => {
+//     // console.log(payload);
+//     return payload.user;
+//   },
+//   [actions.logoutSuccess]: (_, __) => null,
+// });
 
 const tokenReducer = createReducer(null, {
   [actions.loginSuccess]: (_, { type, payload }) => {
@@ -21,5 +21,5 @@ const tokenReducer = createReducer(null, {
   },
   [actions.logoutSuccess]: (_, __) => null,
 });
-const auth = { user: authReducer, token: tokenReducer };
-export default auth;
+
+export default tokenReducer;
