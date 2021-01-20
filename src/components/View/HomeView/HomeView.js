@@ -8,6 +8,7 @@ import getCalculatorInfo from '../../../Redux/Calculator/calculator-operations';
 // import getUser from '../../../Redux/UserInfo/user-operation';
 import selectorUser from '../../../Redux/UserInfo/user-selectors';
 import selectorToken from '../../../Redux/Auth/auth-selectors';
+import image from '../../../images/cross.svg';
 
 const ValidationSchema = Yup.object().shape({
   weight: Yup.number('Must be a number')
@@ -28,6 +29,7 @@ const ValidationSchema = Yup.object().shape({
 export default function HomeView({ button }) {
   const userId = useSelector(selectorUser.userId);
   const isAuth = useSelector(selectorToken);
+
   // console.log(userId);
   // console.log(isAuth);
   const dispatch = useDispatch();
@@ -40,6 +42,9 @@ export default function HomeView({ button }) {
   return (
     <div className={styles.position}>
       <h1 className={styles.titleView}>Calculate your daily calories now</h1>
+      <div className={styles.crossBtn} onClick={button}>
+        <img src={image} alt="cross" className={styles.crossStyle} />
+      </div>
       <Formik
         initialValues={{
           weight: '',
@@ -116,7 +121,7 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="1"
                   />
-                  <span>
+                  <span className={styles.fieldContainer}>
                     <span className={styles.altenativeRadio}></span>1
                   </span>{' '}
                 </label>
@@ -128,7 +133,7 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="2"
                   />
-                  <span>
+                  <span className={styles.fieldContainer}>
                     <span className={styles.altenativeRadio}></span>2
                   </span>{' '}
                 </label>
@@ -166,7 +171,6 @@ export default function HomeView({ button }) {
           </Form>
         )}
       </Formik>
-      <Button onClick={button} label="Close" color="orange" type="submit" />
     </div>
   );
 }
