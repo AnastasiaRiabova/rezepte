@@ -12,3 +12,11 @@
 .itemStyle {
   margin-right: 15px;
 }
+.navigationStyle {
+  background-color: transparent;
+  box-shadow: none;
+  /* margin-right: 20px; */
+}
+.navigationStyle > a {
+  margin-right: 20px;
+}

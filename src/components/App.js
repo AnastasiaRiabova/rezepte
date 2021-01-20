@@ -12,7 +12,7 @@ import PublicRoute from '../components/PublicRoute';
 function App() {
   return (
     <>
-      <div className={style.app}>
+      <div className={style.container}>
         <Header>
           <UserInfo />
         </Header>

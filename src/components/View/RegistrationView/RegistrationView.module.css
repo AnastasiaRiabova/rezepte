@@ -19,11 +19,14 @@
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   color: #fc842d;
 }
 .fieldContainer {
   position: relative;
+  padding-left: 10px;
 }
 .fieldContainer:not(:last-child) {
   margin-bottom: 20px;
@@ -40,12 +43,14 @@
   flex-direction: column;
   max-width: 240px;
   /* padding-bottom: 60px; */
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: 20px; */
+  margin-bottom: 40px;
+  /* margin-right: auto; */
 }
 
 .controls {
   display: flex;
+  margin-left: 20px;
 }
 .controls > a {
   margin-left: 30px;
@@ -56,8 +61,8 @@
 }
 .altenativeRadio {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border: 1px solid #070808;
   border-radius: 50%;
   padding: 2px;
@@ -81,10 +86,14 @@
 .position {
   z-index: 9;
   width: 29%;
-  /* background-image: url('../../../images/Layer.png');
+  background-image: url('../../../images/Layer.png');
   background-repeat: repeat;
-  background-size: cover; */
-  background-color: rgb(164, 160, 160);
+  background-size: cover;
+  background-position: center;
+  /* outline: 2px solid grey; */
+  background-color: white;
+  box-shadow: -7px 5px 21px -2px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
   position: absolute;
   top: 50px;
   /* height: 800px; */
@@ -93,6 +102,31 @@
 
 .titleView {
   padding: 20px;
-
+  /* margin-left: 40px; */
   font-size: 22px;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../../images/Layout.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.crossBtn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fc842d;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.crossStyle {
+  padding: 3px;
+  display: block;
 }

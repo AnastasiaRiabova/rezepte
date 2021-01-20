@@ -11,6 +11,7 @@ export class SearchForm extends Component {
   state = {
     inputValue: '',
     getIndex: '',
+    nextPage: 0,
   };
 
   getIndex = e => {
@@ -21,21 +22,36 @@ export class SearchForm extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    this.props.getRecipes(this.state.inputValue);
-    this.setState({ inputValue: '' });
+    this.props.getRecipes(this.state.inputValue, this.state.nextPage);
+    // this.setState({ inputValue: '' });
+  };
+  toNextPage = async () => {
+    await this.setState(prevstate => {
+      return { nextPage: prevstate.nextPage + 10 };
+    });
+    this.props.getRecipes(this.state.inputValue, this.state.nextPage);
+  };
+  toPrevPage = async () => {
+    await this.setState(prevstate => {
+      return { nextPage: prevstate.nextPage - 10 };
+    });
+    this.props.getRecipes(this.state.inputValue, this.state.nextPage);
   };
   render() {
     return (
       <>
+        {/* <button onClick={this.toNextPage}>click me{this.state.nextPage}</button>
+        <button onClick={this.toPrevPage}>prev</button> */}
         <div className={style.position}>
           <form action="" onSubmit={this.onSubmit}>
             <input
-              className={style.searchInput}
+              id={style.searchInput}
               type="text"
               onInput={this.toGetInputValue}
               value={this.state.inputValue}
+              placeholder="Enter what do you want to eat today"
             />
-            <button>Submit</button>
+            <button className={style.button}>Search</button>
           </form>
           <div className={style.listStyle}>
             <ul className={style.listView}>
@@ -52,7 +68,13 @@ export class SearchForm extends Component {
                       <div className="card">
                         <div className="card-image">
                           <img src={el.recipe.image} alt="food" />
-                          <span className="card-title">{el.recipe.label}</span>
+                          <span
+                            className={['card-title', style.textStyle].join(
+                              ' ',
+                            )}
+                          >
+                            {el.recipe.label}
+                          </span>
                         </div>
                         <div className="card-content">
                           <ul className={style.linkView}>
@@ -73,6 +95,8 @@ export class SearchForm extends Component {
                   </li>
                 ))}
             </ul>
+            <button onClick={this.toNextPage}>nextPage</button>
+            <button onClick={this.toPrevPage}>prevPage</button>
           </div>
           <div className={style.calculator}>
             <NutrientsCount index={this.state.getIndex} />

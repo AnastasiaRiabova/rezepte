@@ -5,32 +5,34 @@
   align-items: center;
   justify-content: center;
   font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 17px;
-letter-spacing: 0.04em;
-border-radius: 30px;
-transition: all linear 250ms;
-
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  transition: all linear 250ms;
+  margin-top: 5px;
 }
 
-.white{
-border: 2px solid #FC842D;
-background: #FFFFFF;
-color: #FC842D;
+.white {
+  border: 2px solid #fc842d;
+  background: #ffffff;
+  color: #fc842d;
 }
-.white:hover, .white:focus{
-    border: 2px solid transparent;
-    background: #FC842D;
-    color: white;
+.white:hover,
+.white:focus {
+  border: 2px solid transparent;
+  background: #fc842d;
+  color: white;
 }
-.orange{
-    border: 2px solid transparent;
-    background: #FC842D;
-    color: white;
+.orange {
+  border: 2px solid transparent;
+  background: #fc842d;
+  color: white;
 }
-.orange:hover, .orange:focus{
-border: 2px solid #FC842D;
-background: #FFFFFF;
-color: #FC842D;
+.orange:hover,
+.orange:focus {
+  border: 2px solid #fc842d;
+  background: #ffffff;
+  color: #fc842d;
 }

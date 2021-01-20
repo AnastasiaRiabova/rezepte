@@ -28,14 +28,14 @@ export default function UserInfo() {
 
   return (
     <>
-      <div>
-        {auth ? <p>Hi, {userName}</p> : null}
+      <div className={styles.nutrientsList}>
+        {auth ? <p className={styles.nutrientsList}>Hi, {userName}</p> : null}
         {!auth ? (
-          <nav>
-            <NavLink activeStyle={{ color: 'red' }} to="/registration">
+          <nav className={styles.navigationStyle}>
+            <NavLink activeStyle={{ color: '#fc842d' }} to="/registration">
               Registration
             </NavLink>
-            <NavLink to="/login" activeStyle={{ color: 'red' }}>
+            <NavLink to="/login" activeStyle={{ color: '#fc842d' }}>
               Login
             </NavLink>
           </nav>
@@ -71,11 +71,13 @@ export default function UserInfo() {
           )}
         </ul>
       </div>
-      <Button
-        onClick={toOpenMenu}
-        color="orange"
-        label="Calculate your daily Nutrients"
-      />
+      {auth && (
+        <Button
+          onClick={toOpenMenu}
+          color="orange"
+          label="Calculate your daily Nutrients"
+        />
+      )}
 
       {menu && <HomeView button={toCloseMenu} />}
     </>

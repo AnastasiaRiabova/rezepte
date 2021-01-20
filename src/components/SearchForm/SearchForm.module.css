@@ -1,13 +1,30 @@
-.searchInput {
-  background-color: rgb(238, 231, 156);
+#searchInput {
+  background-color: transparent;
+  width: 500px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #9e9e9e;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #3a3938;
+  margin-left: 20px;
+}
+
+#searchInput::placeholder {
+  color: #7b7570;
 }
 
 .calculator {
-  background-color: rgba(128, 128, 128, 0.455);
-  border-radius: 10px;
+  background-color: #fc832dcd;
+  box-shadow: 8px 11px 30px -5px #110d09;
+  width: 200px;
+  border-radius: 2px;
   position: fixed;
-  top: 100px;
-  left: 810px;
+  top: 60px;
+  right: 15px;
   padding: 10px;
 }
 
@@ -15,15 +32,20 @@
   /* margin-right: 200px; */
   /* background-color: red; */
   position: relative;
-  /* width: 71%; */
-  /* background-image: url('../../images/Layout.png'); */
+  width: 100%;
+  background-image: linear-gradient(#69656853, #69656853),
+    url('../../images/Layout.png');
+
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+
+  background-position: center;
+
   /* background-color: grey; */
 }
 .linkView {
   height: 120px;
-  overflow: hidden;
+  overflow: scroll;
   /* background-color: rgba(240, 12, 12, 0.509); */
   /* display: inline-block; */
   /* width: 300px; */
@@ -31,9 +53,11 @@
   /* margin-left: 20px; */
 }
 .listStyle {
-  width: 70%;
+  width: 100%;
 }
 .listView {
+  height: 100vh;
+  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   margin-left: 20px;
@@ -47,6 +71,7 @@
 .itemView {
   width: 300px;
   margin-right: 50px;
+  border-radius: 10px;
   /* margin-left: 40px; */
 
   /* border: 2px solid black; */
@@ -55,4 +80,33 @@
 }
 .itemView:hover {
   transform: scale(1.05);
+}
+
+.button {
+  width: 80px;
+  height: 30px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  border-radius: 30px;
+  transition: all linear 250ms;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 2px solid #fc842d;
+  background: #ffffff;
+  color: #fc842d;
+}
+
+.button:hover,
+.button:focus {
+  border: 2px solid transparent;
+  background: #fc842d;
+  color: white;
+}
+
+.textStyle {
+  text-shadow: 3px 3px 3px rgba(28, 12, 7, 0.73);
 }

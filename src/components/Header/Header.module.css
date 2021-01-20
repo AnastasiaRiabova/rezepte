@@ -1,5 +1,27 @@
 .header {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(128, 128, 128, 0.502);
+  align-items: center;
+  background-color: rgb(121, 120, 120);
+  color: #fc842d;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+
+.header2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(171, 165, 165, 0.626);
+  color: #fc842d;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
 }

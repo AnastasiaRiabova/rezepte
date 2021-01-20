@@ -7,10 +7,6 @@ function NutrientsCount({ index }) {
   const [input, setInput] = useState('');
   const getRecipe = useSelector(selectors);
 
-  //   if (getRecipe && index) {
-  //   console.log(index);
-  //     console.log(getRecipe[index].recipe.calories);
-  //   }
   function toCountNutrients(nutrient) {
     if (getRecipe && index) {
       return Math.round(
@@ -25,77 +21,91 @@ function NutrientsCount({ index }) {
 
   return (
     <div className={styles.fontsStyle}>
-      <p>Calculator</p>
-      <input type="text" name="input" value={input} onChange={handleInput} />
+      <p>
+        Choose the Dish and <br />
+        enter the quantity you prefer to eat:
+      </p>
+      <input
+        id={styles.searchInput}
+        type="text"
+        name="input"
+        value={input}
+        placeholder="gram"
+        onChange={handleInput}
+      />
       {/* <p>{input && toCountNutrients()}</p> */}
-      <p>{getRecipe && index && getRecipe[index].recipe.label}</p>
+      <p className={styles.letterStyle}>
+        {getRecipe && index && getRecipe[index].recipe.label}
+      </p>
       <p>
         Total Weight:
-        {getRecipe &&
-          index &&
-          Math.round(getRecipe[index].recipe.totalWeight)}{' '}
-        gramm
+        <span className={styles.letterStyle}>
+          {' '}
+          {getRecipe &&
+            index &&
+            Math.round(getRecipe[index].recipe.totalWeight)}{' '}
+          gr
+        </span>
       </p>
       <p>
         Calories:
-        {input
-          ? toCountNutrients(Math.round(getRecipe[index].recipe.calories))
-          : getRecipe &&
-            index &&
-            Math.round(getRecipe[index].recipe.calories)}{' '}
-        kkal
+        <span className={styles.letterStyle}>
+          {' '}
+          {input
+            ? toCountNutrients(Math.round(getRecipe[index].recipe.calories))
+            : getRecipe &&
+              index &&
+              Math.round(getRecipe[index].recipe.calories)}{' '}
+          kkal
+        </span>
       </p>
       <p>
         Fat:
-        {input
-          ? toCountNutrients(
-              Math.round(getRecipe[index].recipe.totalNutrients.FAT.quantity),
-            )
-          : getRecipe &&
-            index &&
-            Math.round(
-              getRecipe[index].recipe.totalNutrients.FAT.quantity,
-            )}{' '}
-        gramm
+        <span className={styles.letterStyle}>
+          {input
+            ? toCountNutrients(
+                Math.round(getRecipe[index].recipe.totalNutrients.FAT.quantity),
+              )
+            : getRecipe &&
+              index &&
+              Math.round(getRecipe[index].recipe.totalNutrients.FAT.quantity)}
+          gr
+        </span>
       </p>
       <p>
         Carbs:
-        {input
-          ? toCountNutrients(
+        <span className={styles.letterStyle}>
+          {input
+            ? toCountNutrients(
+                Math.round(
+                  getRecipe[index].recipe.totalNutrients.CHOCDF.quantity,
+                ),
+              )
+            : getRecipe &&
+              index &&
               Math.round(
                 getRecipe[index].recipe.totalNutrients.CHOCDF.quantity,
-              ),
-            )
-          : getRecipe &&
-            index &&
-            Math.round(
-              getRecipe[index].recipe.totalNutrients.CHOCDF.quantity,
-            )}{' '}
-        gramm
+              )}{' '}
+          gr
+        </span>
       </p>
       <p>
         Protein:
-        {input
-          ? toCountNutrients(
+        <span className={styles.letterStyle}>
+          {input
+            ? toCountNutrients(
+                Math.round(
+                  getRecipe[index].recipe.totalNutrients.PROCNT.quantity,
+                ),
+              )
+            : getRecipe &&
+              index &&
               Math.round(
                 getRecipe[index].recipe.totalNutrients.PROCNT.quantity,
-              ),
-            )
-          : getRecipe &&
-            index &&
-            Math.round(
-              getRecipe[index].recipe.totalNutrients.PROCNT.quantity,
-            )}{' '}
-        gramm
+              )}{' '}
+          gr
+        </span>
       </p>
-      <button>
-        <a
-          href={getRecipe && index && getRecipe[index].recipe.url}
-          target="_blanc"
-        >
-          Open whole recipe
-        </a>
-      </button>
     </div>
   );
 }
