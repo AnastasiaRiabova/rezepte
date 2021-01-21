@@ -26,6 +26,7 @@ function NutrientsCount({ index }) {
         enter the quantity you prefer to eat:
       </p>
       <input
+        autoComplete="off"
         id={styles.searchInput}
         type="text"
         name="input"
@@ -33,7 +34,6 @@ function NutrientsCount({ index }) {
         placeholder="gram"
         onChange={handleInput}
       />
-      {/* <p>{input && toCountNutrients()}</p> */}
       <p className={styles.letterStyle}>
         {getRecipe && index && getRecipe[index].recipe.label}
       </p>
@@ -51,7 +51,7 @@ function NutrientsCount({ index }) {
         Calories:
         <span className={styles.letterStyle}>
           {' '}
-          {input
+          {input && index
             ? toCountNutrients(Math.round(getRecipe[index].recipe.calories))
             : getRecipe &&
               index &&
@@ -62,7 +62,7 @@ function NutrientsCount({ index }) {
       <p>
         Fat:
         <span className={styles.letterStyle}>
-          {input
+          {input && index
             ? toCountNutrients(
                 Math.round(getRecipe[index].recipe.totalNutrients.FAT.quantity),
               )
@@ -75,7 +75,7 @@ function NutrientsCount({ index }) {
       <p>
         Carbs:
         <span className={styles.letterStyle}>
-          {input
+          {input && index
             ? toCountNutrients(
                 Math.round(
                   getRecipe[index].recipe.totalNutrients.CHOCDF.quantity,
@@ -92,7 +92,7 @@ function NutrientsCount({ index }) {
       <p>
         Protein:
         <span className={styles.letterStyle}>
-          {input
+          {input && index
             ? toCountNutrients(
                 Math.round(
                   getRecipe[index].recipe.totalNutrients.PROCNT.quantity,

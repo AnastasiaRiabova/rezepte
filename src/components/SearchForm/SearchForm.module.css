@@ -45,7 +45,7 @@
 }
 .linkView {
   height: 120px;
-  overflow: scroll;
+  overflow-y: scroll;
   /* background-color: rgba(240, 12, 12, 0.509); */
   /* display: inline-block; */
   /* width: 300px; */
@@ -57,7 +57,7 @@
 }
 .listView {
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
   margin-left: 20px;
@@ -109,4 +109,9 @@
 
 .textStyle {
   text-shadow: 3px 3px 3px rgba(28, 12, 7, 0.73);
+}
+
+.buttonStyle {
+  margin-left: 20px;
+  display: inline-block;
 }
