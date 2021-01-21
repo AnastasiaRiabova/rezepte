@@ -12,23 +12,23 @@ import PublicRoute from '../components/PublicRoute';
 function App() {
   return (
     <>
+      <Header>
+        <UserInfo />
+      </Header>
       <div className={style.container}>
-        <Header>
-          <UserInfo />
-        </Header>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Switch>
+            {routes.map(route =>
+              route.private ? (
+                <PrivateRoute key={route.label} {...route} />
+              ) : (
+                <PublicRoute key={route.label} {...route} />
+              ),
+            )}
+            {/* <Route component={NotFound} /> */}
+          </Switch>
+        </Suspense>
       </div>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Switch>
-          {routes.map(route =>
-            route.private ? (
-              <PrivateRoute key={route.label} {...route} />
-            ) : (
-              <PublicRoute key={route.label} {...route} />
-            ),
-          )}
-          {/* <Route component={NotFound} /> */}
-        </Switch>
-      </Suspense>
     </>
   );
 }
