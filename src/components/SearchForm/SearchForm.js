@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import 'materialize-css';
-// import { Card, Row, Col, Icon, CardTitle } from 'react-materialize';
 import operations from '../../Redux/Recipe/recipe-operations';
 import style from './SearchForm.module.css';
 import getRecipe from '../../Redux/Recipe/recipe-selectors';
 import NutrientsCount from '../NutrientsCount/NutrientsCount';
+import Button from '../UIComponents/Button/Button';
 
 export class SearchForm extends Component {
   state = {
@@ -32,10 +32,14 @@ export class SearchForm extends Component {
     this.props.getRecipes(this.state.inputValue, this.state.nextPage);
   };
   toPrevPage = async () => {
-    await this.setState(prevstate => {
-      return { nextPage: prevstate.nextPage - 10 };
-    });
-    this.props.getRecipes(this.state.inputValue, this.state.nextPage);
+    if (this.state.nextPage > 0) {
+      await this.setState(prevstate => {
+        return { nextPage: prevstate.nextPage - 10 };
+      });
+      this.props.getRecipes(this.state.inputValue, this.state.nextPage);
+    } else {
+      console.log('not');
+    }
   };
   render() {
     return (
@@ -45,6 +49,7 @@ export class SearchForm extends Component {
         <div className={style.position}>
           <form action="" onSubmit={this.onSubmit}>
             <input
+              autoComplete="off"
               id={style.searchInput}
               type="text"
               onInput={this.toGetInputValue}
@@ -95,8 +100,18 @@ export class SearchForm extends Component {
                   </li>
                 ))}
             </ul>
-            <button onClick={this.toNextPage}>nextPage</button>
-            <button onClick={this.toPrevPage}>prevPage</button>
+            <div className={style.buttonStyle}>
+              {this.state.nextPage > 0 && (
+                <Button onClick={this.toPrevPage} label="back" color="white" />
+              )}
+            </div>
+            <div className={style.buttonStyle}>
+              <Button
+                onClick={this.toNextPage}
+                label="Next Page"
+                color="orange"
+              />
+            </div>
           </div>
           <div className={style.calculator}>
             <NutrientsCount index={this.state.getIndex} />
