@@ -57,7 +57,7 @@
 }
 .listView {
   height: 100vh;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   display: flex;
   flex-wrap: wrap;
   margin-left: 20px;
