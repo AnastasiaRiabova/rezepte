@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/AnastasiaRiabova/rezepte/static/css/main.f21202e4.chunk.css",
+    "main.js": "/AnastasiaRiabova/rezepte/static/js/main.187c28df.chunk.js",
+    "main.js.map": "/AnastasiaRiabova/rezepte/static/js/main.187c28df.chunk.js.map",
+    "runtime-main.js": "/AnastasiaRiabova/rezepte/static/js/runtime-main.1ae16b03.js",
+    "runtime-main.js.map": "/AnastasiaRiabova/rezepte/static/js/runtime-main.1ae16b03.js.map",
+    "static/css/2.a7230bcb.chunk.css": "/AnastasiaRiabova/rezepte/static/css/2.a7230bcb.chunk.css",
+    "static/js/2.7850b12d.chunk.js": "/AnastasiaRiabova/rezepte/static/js/2.7850b12d.chunk.js",
+    "static/js/2.7850b12d.chunk.js.map": "/AnastasiaRiabova/rezepte/static/js/2.7850b12d.chunk.js.map",
+    "static/css/3.554c3699.chunk.css": "/AnastasiaRiabova/rezepte/static/css/3.554c3699.chunk.css",
+    "static/js/3.d7557193.chunk.js": "/AnastasiaRiabova/rezepte/static/js/3.d7557193.chunk.js",
+    "static/js/3.d7557193.chunk.js.map": "/AnastasiaRiabova/rezepte/static/js/3.d7557193.chunk.js.map",
+    "static/css/4.603ff745.chunk.css": "/AnastasiaRiabova/rezepte/static/css/4.603ff745.chunk.css",
+    "static/js/4.a7307116.chunk.js": "/AnastasiaRiabova/rezepte/static/js/4.a7307116.chunk.js",
+    "static/js/4.a7307116.chunk.js.map": "/AnastasiaRiabova/rezepte/static/js/4.a7307116.chunk.js.map",
+    "static/css/5.d9c5615d.chunk.css": "/AnastasiaRiabova/rezepte/static/css/5.d9c5615d.chunk.css",
+    "static/js/5.9b56dcd5.chunk.js": "/AnastasiaRiabova/rezepte/static/js/5.9b56dcd5.chunk.js",
+    "static/js/5.9b56dcd5.chunk.js.map": "/AnastasiaRiabova/rezepte/static/js/5.9b56dcd5.chunk.js.map",
+    "static/js/6.1d4ad9d2.chunk.js": "/AnastasiaRiabova/rezepte/static/js/6.1d4ad9d2.chunk.js",
+    "static/js/6.1d4ad9d2.chunk.js.map": "/AnastasiaRiabova/rezepte/static/js/6.1d4ad9d2.chunk.js.map",
+    "index.html": "/AnastasiaRiabova/rezepte/index.html",
+    "static/css/2.a7230bcb.chunk.css.map": "/AnastasiaRiabova/rezepte/static/css/2.a7230bcb.chunk.css.map",
+    "static/css/3.554c3699.chunk.css.map": "/AnastasiaRiabova/rezepte/static/css/3.554c3699.chunk.css.map",
+    "static/css/4.603ff745.chunk.css.map": "/AnastasiaRiabova/rezepte/static/css/4.603ff745.chunk.css.map",
+    "static/css/5.d9c5615d.chunk.css.map": "/AnastasiaRiabova/rezepte/static/css/5.d9c5615d.chunk.css.map",
+    "static/css/main.f21202e4.chunk.css.map": "/AnastasiaRiabova/rezepte/static/css/main.f21202e4.chunk.css.map",
+    "static/js/2.7850b12d.chunk.js.LICENSE.txt": "/AnastasiaRiabova/rezepte/static/js/2.7850b12d.chunk.js.LICENSE.txt",
+    "static/js/6.1d4ad9d2.chunk.js.LICENSE.txt": "/AnastasiaRiabova/rezepte/static/js/6.1d4ad9d2.chunk.js.LICENSE.txt",
+    "static/media/RegistrationView.module.css": "/AnastasiaRiabova/rezepte/static/media/radio.81748f63.svg",
+    "static/media/index.css": "/AnastasiaRiabova/rezepte/static/media/Layout.f437cac1.png",
+    "static/media/cross.27beba07.svg": "/AnastasiaRiabova/rezepte/static/media/cross.27beba07.svg",
+    "static/media/logo.90e78290.svg": "/AnastasiaRiabova/rezepte/static/media/logo.90e78290.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ae16b03.js",
+    "static/css/2.a7230bcb.chunk.css",
+    "static/js/2.7850b12d.chunk.js",
+    "static/css/main.f21202e4.chunk.css",
+    "static/js/main.187c28df.chunk.js"
+  ]
+}
