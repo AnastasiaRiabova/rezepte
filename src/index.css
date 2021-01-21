@@ -45,9 +45,8 @@ span:after {
 #root {
   background-image: linear-gradient(#69656853, #69656853),
     url('../src/images/Layout.png');
-
   background-repeat: no-repeat;
   background-size: cover;
-
   background-position: center;
+  overflow-y: scroll;
 }
