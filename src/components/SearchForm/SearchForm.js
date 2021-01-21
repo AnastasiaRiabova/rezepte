@@ -106,11 +106,13 @@ export class SearchForm extends Component {
               )}
             </div>
             <div className={style.buttonStyle}>
-              <Button
-                onClick={this.toNextPage}
-                label="Next Page"
-                color="orange"
-              />
+              {this.state.inputValue && (
+                <Button
+                  onClick={this.toNextPage}
+                  label="Next Page"
+                  color="orange"
+                />
+              )}
             </div>
           </div>
           <div className={style.calculator}>
