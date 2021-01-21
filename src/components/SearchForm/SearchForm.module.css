@@ -33,13 +33,13 @@
   /* background-color: red; */
   position: relative;
   width: 100%;
-  background-image: linear-gradient(#69656853, #69656853),
+  /* background-image: linear-gradient(#69656853, #69656853),
     url('../../images/Layout.png');
 
   background-repeat: no-repeat;
   background-size: cover;
 
-  background-position: center;
+  background-position: center; */
 
   /* background-color: grey; */
 }

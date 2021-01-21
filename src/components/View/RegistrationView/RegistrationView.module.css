@@ -107,12 +107,12 @@
 }
 
 .background {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
-  background-image: url(../../../images/Layout.png);
+  /* background-image: url(../../../images/Layout.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .crossBtn {
