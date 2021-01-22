@@ -13,6 +13,7 @@ import HomeView from '../View/HomeView/HomeView';
 export default function UserInfo() {
   const [menu, setMenu] = useState(false);
   const auth = useSelector(authSelector);
+  // const userWeight = false;
   const userName = useSelector(userSelector.userName);
   const userCalorien = useSelector(userSelector.userCalories);
   const userWeight = useSelector(userSelector.userWeight);
@@ -47,36 +48,30 @@ export default function UserInfo() {
       )}
       {menu ? <DropBox /> : null} */}
       </div>
-      <div>
+      {auth && userWeight && (
         <ul className={styles.nutrientsList}>
-          {auth && userWeight && (
-            <li className={styles.itemStyle}>
-              Protein:<p>{userWeight}gr</p>
-            </li>
-          )}
-          {auth && userWeight && (
-            <li className={styles.itemStyle}>
-              Fat:<p>{userWeight}gr</p>
-            </li>
-          )}
-          {auth && userWeight && (
-            <li className={styles.itemStyle}>
-              Carbs:<p>{userWeight * 3}gr</p>
-            </li>
-          )}
-          {auth && userCalorien && (
-            <li className={styles.itemStyle}>
-              Calories:<p>{userCalorien}kkal</p>
-            </li>
-          )}
+          <li className={styles.itemStyle}>
+            Protein:<p>{userWeight}gr</p>
+          </li>
+          <li className={styles.itemStyle}>
+            Fat:<p>{userWeight}gr</p>
+          </li>
+          <li className={styles.itemStyle}>
+            Carbs:<p>{userWeight * 3}gr</p>
+          </li>
+          <li className={styles.itemStyle}>
+            Calories:<p>{Math.round(userCalorien)}kkal</p>
+          </li>
         </ul>
-      </div>
+      )}
       {auth && (
-        <Button
-          onClick={toOpenMenu}
-          color="orange"
-          label="Calculate your daily Nutrients"
-        />
+        <div className={userWeight ? null : styles.box}>
+          <Button
+            onClick={toOpenMenu}
+            color="orange"
+            label="Calculate your daily Nutrients"
+          />
+        </div>
       )}
 
       {menu && <HomeView button={toCloseMenu} />}

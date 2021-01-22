@@ -4,7 +4,7 @@
   color: #fc842d;
   font-family: Verdana;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
@@ -19,4 +19,25 @@
 }
 .navigationStyle > a {
   margin-right: 20px;
+}
+
+.box {
+  animation-name: changeBgColor;
+  animation-duration: 2000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes changeBgColor {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
