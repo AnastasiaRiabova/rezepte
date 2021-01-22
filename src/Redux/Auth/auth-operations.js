@@ -1,13 +1,13 @@
 import axios from 'axios';
 import authAction from './auth-actios';
 // to enter new priver Route we have to setTocken, because we clean it up by RecipeRequest
-axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
 
-const setToken = token =>
-  (axios.defaults.headers.common.Authorization = `${token}`);
+// const setToken = token =>
+// (axios.defaults.headers.common.Authorization = `${token}`);
 
 const clearToken = () => (axios.defaults.headers.common.Authorization = '');
 const logIn = userData => dispatch => {
+  axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
   dispatch(authAction.loginRequest());
 
   axios
@@ -25,7 +25,7 @@ const logIn = userData => dispatch => {
 
 const registration = userData => dispatch => {
   dispatch(authAction.registrationRequest());
-
+  axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
   axios
     .post('/auth/register', userData)
     .then(response => {
@@ -49,5 +49,10 @@ const logOut = () => dispatch => {
   clearToken();
   dispatch(authAction.logoutSuccess());
 };
-const authRegistation = { registration, logIn, logOut, setToken };
+const authRegistation = {
+  registration,
+  logIn,
+  logOut,
+  // setToken
+};
 export default authRegistation;

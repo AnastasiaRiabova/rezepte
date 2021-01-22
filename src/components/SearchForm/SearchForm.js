@@ -58,7 +58,10 @@ export class SearchForm extends Component {
             />
             <button className={style.button}>Search</button>
           </form>
-          <div className={style.listStyle}>
+          <div
+            style={this.props.recipe ? { height: '' } : { height: '100vh' }}
+            className={style.listStyle}
+          >
             <ul className={style.listView}>
               {this.props.recipe &&
                 this.props.recipe.map((el, inx) => (
@@ -68,7 +71,6 @@ export class SearchForm extends Component {
                     data={inx}
                     onClick={this.getIndex}
                   >
-                    {/* <div className="row"> */}
                     <div className="col s4 m8">
                       <div className="card">
                         <div className="card-image">
@@ -96,7 +98,6 @@ export class SearchForm extends Component {
                         </div>
                       </div>
                     </div>
-                    {/* </div> */}
                   </li>
                 ))}
             </ul>
@@ -106,7 +107,7 @@ export class SearchForm extends Component {
               )}
             </div>
             <div className={style.buttonStyle}>
-              {this.state.inputValue && (
+              {this.state.inputValue && this.props.recipe && (
                 <Button
                   onClick={this.toNextPage}
                   label="Next Page"

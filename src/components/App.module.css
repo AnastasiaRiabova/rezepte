@@ -1,3 +1,24 @@
 .container {
   max-width: 1600px;
+
+  /* overflow-y: scroll;
+  width: 100%;
+  height: 100%; */
+}
+.bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.privateBg {
+  composes: bg;
+  background-image: linear-gradient(#69656853, #69656853),
+    url('../images/Layout.png');
+}
+
+.publicBg {
+  composes: bg;
+  background-image: url('../images/Layout.png');
 }

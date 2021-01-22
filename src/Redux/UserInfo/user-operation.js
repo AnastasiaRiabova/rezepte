@@ -2,7 +2,7 @@ import axios from 'axios';
 import actions from './user-actions';
 
 const getUser = userData => async dispatch => {
-  axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
+  axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
   axios.defaults.headers.common.Authorization = userData;
   dispatch(actions.getUserInfoRequest());
   axios

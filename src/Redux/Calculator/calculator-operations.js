@@ -1,9 +1,9 @@
 import axios from 'axios';
 import action from './calculator-actions';
-axios.defaults.baseURL = 'http://slimmom-backend.herokuapp.com';
+// axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
 
 const getCalculatorInfo = (info, id, token) => dispatch => {
-  console.log(info, id, token);
+  axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
   axios.defaults.headers.common.Authorization = token;
   dispatch(action.getCalculatorRequest());
 

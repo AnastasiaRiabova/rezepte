@@ -31,7 +31,7 @@ function NutrientsCount({ index }) {
         type="text"
         name="input"
         value={input}
-        placeholder="gram"
+        placeholder={index ? 'How much gram?' : 'choose your dish'}
         onChange={handleInput}
       />
       <p className={styles.letterStyle}>

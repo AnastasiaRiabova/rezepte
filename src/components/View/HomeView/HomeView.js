@@ -56,8 +56,7 @@ export default function HomeView({ button }) {
         validationSchema={ValidationSchema}
         onSubmit={(values, { resetForm }) => {
           userId && isAuth && getWholeCalculatorInfo(values);
-          console.log(isAuth);
-          console.log(userId);
+
           resetForm();
         }}
       >
