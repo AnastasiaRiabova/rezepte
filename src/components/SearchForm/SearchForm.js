@@ -54,7 +54,7 @@ export class SearchForm extends Component {
               type="text"
               onInput={this.toGetInputValue}
               value={this.state.inputValue}
-              placeholder="Enter what do you want to eat today"
+              placeholder="Type here what you would to eat today"
             />
             <button className={style.button}>Search</button>
           </form>
@@ -87,8 +87,8 @@ export class SearchForm extends Component {
                           <ul className={style.linkView}>
                             Ingredients:
                             {el.recipe.ingredients.map((el, ind) => (
-                              <li key={ind}>{el.text}</li>
-                            ))}
+                            <li key={ind}>{el.text}</li>
+                          ))}
                           </ul>
                         </div>
                         <div className="card-action">

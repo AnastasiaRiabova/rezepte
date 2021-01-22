@@ -62,7 +62,7 @@ export default function HomeView({ button }) {
       >
         {({ errors, touched }) => (
           <Form>
-            <div className={styles.formContainer}>
+            <div style={{ marginLeft: 'auto', marginRight: 'auto' }} className={styles.formContainer}>
               <div className={styles.fieldContainer}>
                 <Field
                   placeholder="Weight *"
@@ -111,7 +111,10 @@ export default function HomeView({ button }) {
               </div>
 
               <h2 className={styles.titleView}> Blood type</h2>
-              <div className={styles.fieldContainer}>
+              <div style={{
+                'display': 'flex',
+                'justifyContent': 'space-around'
+              }} className={styles.fieldContainer}>
                 <label>
                   {' '}
                   <Field
@@ -120,7 +123,7 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="1"
                   />
-                  <span className={styles.fieldContainer}>
+                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }} className={styles.fieldContainer}>
                     <span className={styles.altenativeRadio}></span>1
                   </span>{' '}
                 </label>
@@ -132,8 +135,8 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="2"
                   />
-                  <span className={styles.fieldContainer}>
-                    <span className={styles.altenativeRadio}></span>2
+                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }} className={styles.fieldContainer}>
+                    <span className={styles.altenativeRadio}></span><div>2</div>
                   </span>{' '}
                 </label>
                 <label>
@@ -144,7 +147,7 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="3"
                   />
-                  <span>
+                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }}>
                     <span className={styles.altenativeRadio}></span>3
                   </span>{' '}
                 </label>
@@ -156,20 +159,20 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="4"
                   />
-                  <span>
+                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }}>
                     <span className={styles.altenativeRadio}></span>4
                   </span>{' '}
                 </label>
                 {errors.bloodType && touched.bloodType ? (
                   <div className={styles.validation}>{errors.bloodType}</div>
                 ) : null}
-              </div>
+              </div >
 
-              <Button label="Calculate" color="orange" type="submit" />
+              <Button style={{ marginLeft: 'auto' }} label="Calculate" color="orange" type="submit" />
             </div>
           </Form>
         )}
       </Formik>
-    </div>
+    </div >
   );
 }
