@@ -25,3 +25,24 @@
   line-height: 17px;
   letter-spacing: 0.04em;
 }
+@media (max-width: 620px) {
+  .header2 > a > img {
+    width: 130px;
+  }
+  .header {
+    height: 200px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  .header2 > a > img {
+    width: 130px;
+  }
+  .header {
+    height: 170px;
+    flex-direction: column;
+  }
+  .header > a:last-child {
+    padding-bottom: 15px;
+  }
+}

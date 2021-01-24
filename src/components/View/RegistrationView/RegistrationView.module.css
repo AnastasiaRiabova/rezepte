@@ -41,7 +41,7 @@
   /* padding-left: 40px; */
   display: flex;
   flex-direction: column;
-  max-width: 240px;
+  max-width: 286px;
   /* padding-bottom: 60px; */
   /* margin-left: 20px; */
   margin-bottom: 40px;
@@ -129,4 +129,34 @@
 .crossStyle {
   padding: 3px;
   display: block;
+}
+@media (max-width: 620px) {
+  .position {
+    width: 80%;
+    margin: 0 10px;
+  }
+  .formContainer {
+    max-width: 240px;
+  }
+  .formContainer > button {
+    margin-right: auto;
+  }
+}
+/* @media (max-width: 767px) {
+  .position {
+    width: 50%;
+    margin: 0 10px;
+  } */
+/* .formContainer {
+    max-width: 240px;
+  }
+  .formContainer > button {
+    margin-right: auto;
+  } */
+/* } */
+@media (min-width: 621px) and (max-width: 1200px) {
+  .position {
+    width: 50%;
+    margin: 0 10px;
+  }
 }

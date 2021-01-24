@@ -39,7 +39,7 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  max-width: 240px;
+  max-width: 268px;
   padding-bottom: 60px;
   margin-left: 20px;
 }
@@ -59,4 +59,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; */
+}
+@media (max-width: 620px) {
+  .input {
+    font-size: 12px;
+    padding-bottom: 0;
+  }
 }

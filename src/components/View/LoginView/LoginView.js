@@ -38,10 +38,11 @@ export default function LoginView() {
         }}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form autocomplete="off">
             <div className={styles.formContainer}>
               <div className={styles.fieldContainer}>
                 <Field
+                  autocomplete="off"
                   placeholder="Email"
                   className={styles.input}
                   name="email"
@@ -52,6 +53,7 @@ export default function LoginView() {
               </div>
               <div className={styles.fieldContainer}>
                 <Field
+                  autocomplete="off"
                   type="password"
                   placeholder="Password"
                   className={styles.input}

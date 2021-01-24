@@ -116,3 +116,47 @@
   margin-left: 20px;
   display: inline-block;
 }
+@media (max-width: 620px) {
+  .calculator {
+    display: none;
+  }
+  #searchInput {
+    max-width: 243px;
+  }
+  #searchInput + button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #searchInput::placeholder {
+    font-size: 10px;
+  }
+  .position {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .position > form {
+    display: flex;
+    flex-direction: column;
+  }
+  .listView {
+    margin: 0 auto;
+  }
+  .itemView {
+    margin: 0;
+    /* width: 100%; */
+  }
+}
+@media (max-width: 840px) {
+  .calculator {
+    display: none;
+  }
+}
+@media (max-width: 874px) {
+  .listView {
+    margin: 0 auto;
+  }
+  .itemView {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
