@@ -41,7 +41,7 @@ export default function HomeView({ button }) {
   );
   return (
     <div className={styles.position}>
-      <h1 className={styles.titleView}>Calculate your daily calories now</h1>
+      <h1 className={styles.titleView}>Calculate your daily calories</h1>
       <div className={styles.crossBtn} onClick={button}>
         <img src={image} alt="cross" className={styles.crossStyle} />
       </div>
@@ -62,7 +62,10 @@ export default function HomeView({ button }) {
       >
         {({ errors, touched }) => (
           <Form>
-            <div style={{ marginLeft: 'auto', marginRight: 'auto' }} className={styles.formContainer}>
+            <div
+              style={{ marginLeft: 'auto', marginRight: 'auto' }}
+              className={styles.formContainer}
+            >
               <div className={styles.fieldContainer}>
                 <Field
                   placeholder="Weight *"
@@ -111,10 +114,13 @@ export default function HomeView({ button }) {
               </div>
 
               <h2 className={styles.titleView}> Blood type</h2>
-              <div style={{
-                'display': 'flex',
-                'justifyContent': 'space-around'
-              }} className={styles.fieldContainer}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                }}
+                className={styles.fieldContainer}
+              >
                 <label>
                   {' '}
                   <Field
@@ -123,7 +129,14 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="1"
                   />
-                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }} className={styles.fieldContainer}>
+                  <span
+                    style={{
+                      padding: '0px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                    className={styles.fieldContainer}
+                  >
                     <span className={styles.altenativeRadio}></span>1
                   </span>{' '}
                 </label>
@@ -135,8 +148,16 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="2"
                   />
-                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }} className={styles.fieldContainer}>
-                    <span className={styles.altenativeRadio}></span><div>2</div>
+                  <span
+                    style={{
+                      padding: '0px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                    className={styles.fieldContainer}
+                  >
+                    <span className={styles.altenativeRadio}></span>
+                    <div>2</div>
                   </span>{' '}
                 </label>
                 <label>
@@ -147,7 +168,13 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="3"
                   />
-                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }}>
+                  <span
+                    style={{
+                      padding: '0px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
                     <span className={styles.altenativeRadio}></span>3
                   </span>{' '}
                 </label>
@@ -159,20 +186,31 @@ export default function HomeView({ button }) {
                     name="bloodType"
                     value="4"
                   />
-                  <span style={{ padding: '0px', display: 'flex', alignItems: 'center' }}>
+                  <span
+                    style={{
+                      padding: '0px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
                     <span className={styles.altenativeRadio}></span>4
                   </span>{' '}
                 </label>
                 {errors.bloodType && touched.bloodType ? (
                   <div className={styles.validation}>{errors.bloodType}</div>
                 ) : null}
-              </div >
+              </div>
 
-              <Button style={{ marginLeft: 'auto' }} label="Calculate" color="orange" type="submit" />
+              <Button
+                style={{ marginLeft: 'auto' }}
+                label="Calculate"
+                color="orange"
+                type="submit"
+              />
             </div>
           </Form>
         )}
       </Formik>
-    </div >
+    </div>
   );
 }

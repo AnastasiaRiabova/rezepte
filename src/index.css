@@ -41,3 +41,6 @@ span::before,
 span:after {
   display: none;
 }
+img {
+  display: inline-block;
+}

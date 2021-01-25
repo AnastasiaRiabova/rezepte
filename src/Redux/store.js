@@ -14,6 +14,8 @@ import recipeReducer from './Recipe/recipe-reducers';
 // import calculatorReducer from './Calculator/calculator-reducers';
 import authReducer from './Auth/auth-reducers';
 import getUserInfoReducer from './UserInfo/user-reducer';
+import loadingReduces from './Loader/loading-reducer';
+import errorReducer from './Errors/errors-reducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -31,6 +33,8 @@ const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     user: getUserInfoReducer,
     recipe: persistReducer(recipePersistConfig, recipeReducer),
+    loading: loadingReduces,
+    errors: errorReducer,
     // calculator: calculatorReducer,
   },
   middleware: getDefaultMiddleware({

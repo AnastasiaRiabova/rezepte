@@ -41,3 +41,8 @@
     transform: scale(1);
   }
 }
+@media (max-width: 620px) {
+  .navigationStyle > a {
+    font-size: 12px;
+  }
+}

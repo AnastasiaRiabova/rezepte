@@ -36,3 +36,9 @@
   background: #ffffff;
   color: #fc842d;
 }
+@media (max-width: 620px) {
+  .link {
+    font-size: 12px;
+    width: 120px;
+  }
+}

@@ -35,3 +35,9 @@
   background: #ffffff;
   color: #fc842d;
 }
+@media (max-width: 620px) {
+  .button {
+    font-size: 12px;
+    width: 120px;
+  }
+}

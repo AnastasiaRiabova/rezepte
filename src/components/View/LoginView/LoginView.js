@@ -1,11 +1,15 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { CircularProgress } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import Button from '../../UIComponents/Button/Button';
 import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
 import operations from '../../../Redux/Auth/auth-operations';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './LoginView.module.css';
+import loaderSelectors from '../../../Redux/Loader/loading-selectors';
+import errorSelectors from '../../../Redux/Errors/errors-selectors';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -22,7 +26,8 @@ export default function LoginView() {
     },
     [dispatch],
   );
-
+  const isLoading = useSelector(loaderSelectors);
+  const error = useSelector(errorSelectors);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>Login</h1>
@@ -38,10 +43,11 @@ export default function LoginView() {
         }}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form autoComplete="off">
             <div className={styles.formContainer}>
               <div className={styles.fieldContainer}>
                 <Field
+                  autoComplete="off"
                   placeholder="Email"
                   className={styles.input}
                   name="email"
@@ -52,6 +58,7 @@ export default function LoginView() {
               </div>
               <div className={styles.fieldContainer}>
                 <Field
+                  autoComplete="off"
                   type="password"
                   placeholder="Password"
                   className={styles.input}
@@ -62,14 +69,31 @@ export default function LoginView() {
                 ) : null}
               </div>
             </div>
-            <div className={styles.controls}>
-              <Button label="Login" color="orange" type="submit" />
-              <CustomNavlink
-                to="/registration"
-                label="Registration"
-                color="orange"
-              />
-            </div>
+            {error && (
+              <div
+                style={{
+                  width: '380px',
+                  marginLeft: '20px',
+                  borderRadius: '50%',
+                }}
+              >
+                <Alert variant="filled" severity="warning">
+                  Sorry, something went wrong!
+                </Alert>
+              </div>
+            )}
+            {isLoading ? (
+              <CircularProgress />
+            ) : (
+              <div className={styles.controls}>
+                <Button label="Login" color="orange" type="submit" />
+                <CustomNavlink
+                  to="/registration"
+                  label="Registration"
+                  color="orange"
+                />
+              </div>
+            )}
           </Form>
         )}
       </Formik>

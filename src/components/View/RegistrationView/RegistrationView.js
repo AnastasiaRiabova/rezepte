@@ -1,11 +1,15 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { CircularProgress } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import Button from '../../UIComponents/Button/Button';
 import operation from '../../../Redux/Auth/auth-operations';
 import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './RegistrationView.module.css';
+import selectors from '../../../Redux/Loader/loading-selectors';
+import errorSelectors from '../../../Redux/Errors/errors-selectors';
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
@@ -27,6 +31,8 @@ export default function RegistrationView() {
     },
     [dispatch],
   );
+  const isLoading = useSelector(selectors);
+  const error = useSelector(errorSelectors);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>REGISTRATION</h1>
@@ -47,6 +53,7 @@ export default function RegistrationView() {
             <div className={styles.formContainer}>
               <div className={styles.fieldContainer}>
                 <Field
+                  autoComplete="off"
                   placeholder="Name *"
                   className={styles.input}
                   name="username"
@@ -57,6 +64,7 @@ export default function RegistrationView() {
               </div>
               <div className={styles.fieldContainer}>
                 <Field
+                  autoComplete="off"
                   placeholder="Email *"
                   className={styles.input}
                   name="email"
@@ -67,6 +75,7 @@ export default function RegistrationView() {
               </div>
               <div className={styles.fieldContainer}>
                 <Field
+                  autoComplete="off"
                   placeholder="Password *"
                   type="password"
                   className={styles.input}
@@ -77,10 +86,27 @@ export default function RegistrationView() {
                 ) : null}
               </div>
             </div>
-            <div className={styles.controls}>
-              <Button label="Registration" color="orange" type="submit" />
-              <CustomNavlink to="/login" label="Login" color="white" />
-            </div>
+            {error && (
+              <div
+                style={{
+                  width: '380px',
+                  marginLeft: '20px',
+                  borderRadius: '50%',
+                }}
+              >
+                <Alert variant="filled" severity="warning">
+                  Sorry, something went wrong!
+                </Alert>
+              </div>
+            )}
+            {isLoading ? (
+              <CircularProgress />
+            ) : (
+              <div className={styles.controls}>
+                <Button label="Registration" color="orange" type="submit" />
+                <CustomNavlink to="/login" label="Login" color="white" />
+              </div>
+            )}
           </Form>
         )}
       </Formik>
