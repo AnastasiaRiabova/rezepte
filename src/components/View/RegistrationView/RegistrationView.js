@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -33,6 +33,14 @@ export default function RegistrationView() {
   );
   const isLoading = useSelector(selectors);
   const error = useSelector(errorSelectors);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 3000);
+  }, [error]);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>REGISTRATION</h1>
@@ -86,7 +94,7 @@ export default function RegistrationView() {
                 ) : null}
               </div>
             </div>
-            {error && (
+            {show && error && (
               <div
                 style={{
                   width: '380px',

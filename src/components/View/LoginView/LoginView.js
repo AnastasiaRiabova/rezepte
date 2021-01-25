@@ -27,8 +27,8 @@ export default function LoginView() {
     [dispatch],
   );
 
-  const [show, setShow] = useState(false);
   const error = useSelector(errorSelectors);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     setShow(true);
