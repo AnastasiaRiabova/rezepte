@@ -2,10 +2,12 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import 'materialize-css';
 import { CircularProgress } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import operations from '../../Redux/Recipe/recipe-operations';
 import style from './SearchForm.module.css';
 import getRecipe from '../../Redux/Recipe/recipe-selectors';
 import loadingSelectors from '../../Redux/Loader/loading-selectors';
+import errorSelectors from '../../Redux/Errors/errors-selectors';
 import NutrientsCount from '../NutrientsCount/NutrientsCount';
 import Button from '../UIComponents/Button/Button';
 
@@ -64,6 +66,19 @@ export class SearchForm extends Component {
               <button className={style.button}>Search</button>
             )}
           </form>
+          {this.props.error && (
+            <div
+              style={{
+                width: '380px',
+                marginLeft: '20px',
+                borderRadius: '50%',
+              }}
+            >
+              <Alert variant="filled" severity="warning">
+                Sorry, something went wrong!
+              </Alert>
+            </div>
+          )}
           <div
             style={this.props.recipe ? { height: '' } : { height: '100vh' }}
             className={style.listStyle}
@@ -107,18 +122,37 @@ export class SearchForm extends Component {
                   </li>
                 ))}
             </ul>
-            <div className={style.buttonStyle}>
-              {this.state.nextPage > 0 && (
-                <Button onClick={this.toPrevPage} label="back" color="white" />
-              )}
-            </div>
-            <div className={style.buttonStyle}>
-              {this.state.inputValue && this.props.recipe && (
-                <Button
-                  onClick={this.toNextPage}
-                  label="Next Page"
-                  color="orange"
-                />
+            <div style={{ display: 'flex' }}>
+              <div className={style.buttonStyle}>
+                {this.state.nextPage > 0 && (
+                  <Button
+                    onClick={this.toPrevPage}
+                    label="back"
+                    color="white"
+                  />
+                )}
+              </div>
+              <div className={style.buttonStyle}>
+                {this.state.inputValue && this.props.recipe && (
+                  <Button
+                    onClick={this.toNextPage}
+                    label="Next Page"
+                    color="orange"
+                  />
+                )}
+              </div>
+              {this.props.error && (
+                <div
+                  style={{
+                    width: '380px',
+                    marginLeft: '20px',
+                    borderRadius: '50%',
+                  }}
+                >
+                  <Alert variant="filled" severity="warning">
+                    Sorry, something went wrong!
+                  </Alert>
+                </div>
               )}
             </div>
           </div>
@@ -133,6 +167,7 @@ export class SearchForm extends Component {
 const mapStateToProps = state => ({
   recipe: getRecipe(state),
   isLoading: loadingSelectors(state),
+  error: errorSelectors(state),
 });
 
 const mapDispatchToProps = {

@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import Button from '../../UIComponents/Button/Button';
 import operation from '../../../Redux/Auth/auth-operations';
 import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
@@ -8,6 +9,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './RegistrationView.module.css';
 import selectors from '../../../Redux/Loader/loading-selectors';
+import errorSelectors from '../../../Redux/Errors/errors-selectors';
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
@@ -30,6 +32,7 @@ export default function RegistrationView() {
     [dispatch],
   );
   const isLoading = useSelector(selectors);
+  const error = useSelector(errorSelectors);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>REGISTRATION</h1>
@@ -83,6 +86,19 @@ export default function RegistrationView() {
                 ) : null}
               </div>
             </div>
+            {error && (
+              <div
+                style={{
+                  width: '380px',
+                  marginLeft: '20px',
+                  borderRadius: '50%',
+                }}
+              >
+                <Alert variant="filled" severity="warning">
+                  Sorry, something went wrong!
+                </Alert>
+              </div>
+            )}
             {isLoading ? (
               <CircularProgress />
             ) : (

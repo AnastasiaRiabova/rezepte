@@ -1,13 +1,15 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import Button from '../../UIComponents/Button/Button';
 import CustomNavlink from '../../UIComponents/NavLink/CustomNavlink';
 import operations from '../../../Redux/Auth/auth-operations';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './LoginView.module.css';
-import selectors from '../../../Redux/Loader/loading-selectors';
+import loaderSelectors from '../../../Redux/Loader/loading-selectors';
+import errorSelectors from '../../../Redux/Errors/errors-selectors';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -24,7 +26,8 @@ export default function LoginView() {
     },
     [dispatch],
   );
-  const isLoading = useSelector(selectors);
+  const isLoading = useSelector(loaderSelectors);
+  const error = useSelector(errorSelectors);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>Login</h1>
@@ -66,6 +69,19 @@ export default function LoginView() {
                 ) : null}
               </div>
             </div>
+            {error && (
+              <div
+                style={{
+                  width: '380px',
+                  marginLeft: '20px',
+                  borderRadius: '50%',
+                }}
+              >
+                <Alert variant="filled" severity="warning">
+                  Sorry, something went wrong!
+                </Alert>
+              </div>
+            )}
             {isLoading ? (
               <CircularProgress />
             ) : (
