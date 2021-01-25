@@ -16,8 +16,27 @@ export class SearchForm extends Component {
     inputValue: '',
     getIndex: '',
     nextPage: 0,
+    showError: false,
+    renderError: false,
   };
+  componentDidUpdate() {
+    if (this.props.error && this.state.renderError === false) {
+      this.setState({ showError: true, renderError: true });
+      setTimeout(() => {
+        this.setState({ showError: false });
+      }, 3000);
+    }
+    if (!this.props.error && this.state.renderError) {
+      this.setState({ renderError: false });
+    }
+  }
 
+  showE = () => {
+    this.setState({ showError: true });
+    setTimeout(() => {
+      this.setState({ showError: false });
+    }, 3000);
+  };
   getIndex = e => {
     this.setState({ getIndex: e.currentTarget.attributes.data.value });
   };
@@ -66,7 +85,7 @@ export class SearchForm extends Component {
               <button className={style.button}>Search</button>
             )}
           </form>
-          {this.props.error && (
+          {this.state.showError && (
             <div
               style={{
                 width: '380px',
@@ -80,7 +99,11 @@ export class SearchForm extends Component {
             </div>
           )}
           <div
-            style={this.props.recipe ? { height: '' } : { height: '100vh' }}
+            style={
+              this.props.recipe.length > 0
+                ? { height: '' }
+                : { height: '100vh' }
+            }
             className={style.listStyle}
           >
             <ul className={style.listView}>
@@ -141,7 +164,7 @@ export class SearchForm extends Component {
                   />
                 )}
               </div>
-              {this.props.error && (
+              {this.state.showError && (
                 <div
                   style={{
                     width: '380px',
