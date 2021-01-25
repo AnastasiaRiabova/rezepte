@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { CircularProgress } from '@material-ui/core';
 import Header from './Header/Header';
 import UserInfo from './UserInfo/UserInfo';
 import style from './App.module.css';
@@ -19,7 +20,7 @@ function App() {
           <UserInfo />
         </Header>
         <div className={style.container}>
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense fallback={<CircularProgress />}>
             <Switch>
               {routes.map(route =>
                 route.private ? (

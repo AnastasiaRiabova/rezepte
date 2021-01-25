@@ -1,9 +1,11 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import 'materialize-css';
+import { CircularProgress } from '@material-ui/core';
 import operations from '../../Redux/Recipe/recipe-operations';
 import style from './SearchForm.module.css';
 import getRecipe from '../../Redux/Recipe/recipe-selectors';
+import loadingSelectors from '../../Redux/Loader/loading-selectors';
 import NutrientsCount from '../NutrientsCount/NutrientsCount';
 import Button from '../UIComponents/Button/Button';
 
@@ -56,7 +58,11 @@ export class SearchForm extends Component {
               value={this.state.inputValue}
               placeholder="Type here what you would like to eat today"
             />
-            <button className={style.button}>Search</button>
+            {this.props.isLoading ? (
+              <CircularProgress />
+            ) : (
+              <button className={style.button}>Search</button>
+            )}
           </form>
           <div
             style={this.props.recipe ? { height: '' } : { height: '100vh' }}
@@ -126,6 +132,7 @@ export class SearchForm extends Component {
 }
 const mapStateToProps = state => ({
   recipe: getRecipe(state),
+  isLoading: loadingSelectors(state),
 });
 
 const mapDispatchToProps = {
