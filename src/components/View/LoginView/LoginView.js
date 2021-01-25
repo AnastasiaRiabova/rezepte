@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -26,8 +26,18 @@ export default function LoginView() {
     },
     [dispatch],
   );
-  const isLoading = useSelector(loaderSelectors);
+
+  const [show, setShow] = useState(false);
   const error = useSelector(errorSelectors);
+
+  useEffect(() => {
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 3000);
+  }, [error]);
+
+  const isLoading = useSelector(loaderSelectors);
   return (
     <div className={styles.background}>
       <h1 className={styles.title}>Login</h1>
@@ -69,7 +79,7 @@ export default function LoginView() {
                 ) : null}
               </div>
             </div>
-            {error && (
+            {show && error && (
               <div
                 style={{
                   width: '380px',
@@ -78,7 +88,8 @@ export default function LoginView() {
                 }}
               >
                 <Alert variant="filled" severity="warning">
-                  Sorry, something went wrong!
+                  Sorry, something went wrong: <br />
+                  {error}
                 </Alert>
               </div>
             )}

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authAction from './auth-actios';
+// import errorAction from '../Errors/errors-action';
 // to enter new priver Route we have to setTocken, because we clean it up by RecipeRequest
 
 // const setToken = token =>
@@ -17,9 +18,12 @@ const logIn = userData => dispatch => {
       dispatch(authAction.loginSuccess(response.data));
     })
     .catch(error => {
-      console.log(error);
-      console.log(error.message);
+      // console.log(error);
+      // dispatch(errorAction(true));
       dispatch(authAction.loginError(error.message));
+      // setTimeout(() => {
+      //   dispatch(errorAction(false));
+      // }, 2000);
     });
 };
 
