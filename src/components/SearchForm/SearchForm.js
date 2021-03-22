@@ -19,6 +19,7 @@ export class SearchForm extends Component {
     showError: false,
     renderError: false,
   };
+
   componentDidUpdate() {
     if (this.props.error && this.state.renderError === false) {
       this.setState({ showError: true, renderError: true });
@@ -100,7 +101,7 @@ export class SearchForm extends Component {
           )}
           <div
             style={
-              this.props.recipe.length > 0
+              this.props?.recipe?.length > 0
                 ? { height: '' }
                 : { height: '100vh' }
             }
